@@ -1,0 +1,20 @@
+        <article>
+            <h1><%= page.title %></h1>
+            <p><%= date(page.date, config.date_format) %></p>
+            <div class="content">
+                <%- page.content %>
+            </div>
+            <div class="tag">
+                <% page.tags && page.tags.each(function(tag){ %>
+                <a href="<%= url_for(tag.path) %>"><%= tag.name %></a>
+                <% }) %>
+            </div>
+        </article>
+        <div class="page">
+            <% if (page.prev) { %>
+            <a href="<%- url_for(page.prev.path) %>" title="<%= page.prev.title %>">上一篇</a>
+            <% } %>
+            <% if (page.next) { %>
+            <a href="<%- url_for(page.next.path) %>" title="<%= page.next.title %>">下一篇</a>
+            <% } %>
+        </div>

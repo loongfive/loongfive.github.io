@@ -1,0 +1,50 @@
+<%
+var title = page.title;
+if (is_archive()){
+    title = 'Archives';
+    if (is_month()){
+        title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+        title += ': ' + page.year;
+    }
+} else if (is_category()){
+    title = 'Category: ' + page.category;
+} else if (is_tag()){
+    title = 'Tag: ' + page.tag;
+}
+%>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title><% if (title){ %><%= title %> - <% } %><%= config.title %></title>
+<link rel="stylesheet" href="/css/style.min.css">
+<%- open_graph() %>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/"><%= config.title %></a></h2>
+            <p><%= config.subtitle %></p>
+        </header>
+
+<%- body %>
+
+        <footer>
+            <p>© <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>

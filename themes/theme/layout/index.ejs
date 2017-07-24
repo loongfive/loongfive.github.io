@@ -1,0 +1,14 @@
+        <ul class="list">
+            <% page.posts.each(function(post){ %>
+            <li>
+                <span><%= date(post.date, config.date_format) %></span>
+                <a href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.title %></a>
+            </li>
+            <% }) %>
+        </ul>
+        <div class="page">
+            <%- paginator({
+                prev_text: '上一页',
+                next_text: '下一页'
+            }) %>
+        </div>
