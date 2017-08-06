@@ -63,12 +63,12 @@ https://github.com/aa65535/openwrt-shadowsocks
     no-resolv
     server=127.0.0.1#5353
 
-好了，现在就是基本都ok了。
-
 接着去 面板里 修改ss的服务器信息就ok了
-
-然后就可以翻墙了。
 
 ## 设置
 
 ![](/images/wndr4300-openwrt-shadowsocks.jpg)
+
+好了，现在就是基本都ok了
+
+然后就可以翻墙了
