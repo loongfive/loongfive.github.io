@@ -400,4 +400,8 @@ article > p {
   .list span {
     font-size: 15px;
   }
+  .page .page-number,
+  .page .space {
+    display: none;
+  }
 }
