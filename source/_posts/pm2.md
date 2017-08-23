@@ -28,6 +28,12 @@ ok! 项目已经跑起来了。
 
     pm2 monit
 
+想要开机自启动？先pm2 start程序，然后：
+
+    pm2 save
+    pm2 startup
+
+
 ## 更多用法
 
     npm install pm2 -g     # 命令行安装 pm2 
