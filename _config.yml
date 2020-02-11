@@ -68,8 +68,8 @@ theme: theme
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-- type: git
-  repo: https://git.dev.tencent.com/xiao567/blog.git
-  branch: public
+#- type: git
+#  repo: https://git.dev.tencent.com/xiao567/blog.git
+#  branch: public
 - type: git
   repo: https://github.com/loongfive/loongfive.github.io.git
