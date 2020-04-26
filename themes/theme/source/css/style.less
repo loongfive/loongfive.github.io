@@ -480,3 +480,42 @@ article {
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-track-piece {
+        background: #222;
+    }
+    body {
+        background-color: #222;
+        color: #e3e3e3;
+    }
+    a, header a {
+        color: #e3e3e3;
+    }
+    .list li, .page .current {
+        border-color: #333;
+    }
+    .content {
+        a:hover {
+            color: darken(@red, 10%);
+        }
+        pre, code, blockquote {
+            background: #666;
+        }
+    }
+    .tag a {
+        background-color: #666;
+        &::before {
+            border-right-color: #666;
+        }
+    }
+    .topbar {
+        background: #666;
+    }
+    img {
+        opacity: .9;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

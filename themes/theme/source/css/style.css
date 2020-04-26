@@ -219,7 +219,7 @@ body {
 a {
   color: #444;
   text-decoration: none;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 a:hover {
   color: #1ecd97;
@@ -352,7 +352,7 @@ article > p {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid #ddd;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 .tag a::after {
   content: '';
@@ -382,15 +382,15 @@ article > p {
   color: #fff;
   bottom: 20px;
   right: 20px;
-  opacity: .2;
+  opacity: 0.2;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 .topbar i {
   font-size: 30px;
 }
 .topbar:hover {
-  opacity: .3;
+  opacity: 0.3;
 }
 @media (max-width: 768px) {
   .list li {
@@ -403,5 +403,45 @@ article > p {
   .page .page-number,
   .page .space {
     display: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track-piece {
+    background: #222;
+  }
+  body {
+    background-color: #222;
+    color: #e3e3e3;
+  }
+  a,
+  header a {
+    color: #e3e3e3;
+  }
+  .list li,
+  .page .current {
+    border-color: #333;
+  }
+  .content a:hover {
+    color: #ff5555;
+  }
+  .content pre,
+  .content code,
+  .content blockquote {
+    background: #666;
+  }
+  .tag a {
+    background-color: #666;
+  }
+  .tag a::before {
+    border-right-color: #666;
+  }
+  .topbar {
+    background: #666;
+  }
+  img {
+    opacity: 0.9;
+  }
+  img:hover {
+    opacity: 1;
   }
 }
