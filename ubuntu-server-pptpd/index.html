@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>ubuntu server 下pptpd搭建VPN服务器 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="1. 安装pptpd sudo apt-get install pptpd 2. 修改 /etc/pptpd.conf，配置localip和remoteip localip 10.200.0.1 remoteip 10.200.0.2-100 3. 修改 /etc/ppp/pptpd-options，配置dns ms-dns 8.8.8.8 ms-dns 8.8.4.4 4. 修改 /etc/pp">
+<meta name="keywords" content="ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu server 下pptpd搭建VPN服务器">
+<meta property="og:url" content="https://www.xushulong.com/ubuntu-server-pptpd/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="1. 安装pptpd sudo apt-get install pptpd 2. 修改 /etc/pptpd.conf，配置localip和remoteip localip 10.200.0.1 remoteip 10.200.0.2-100 3. 修改 /etc/ppp/pptpd-options，配置dns ms-dns 8.8.8.8 ms-dns 8.8.4.4 4. 修改 /etc/pp">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-28T07:16:38.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu server 下pptpd搭建VPN服务器">
+<meta name="twitter:description" content="1. 安装pptpd sudo apt-get install pptpd 2. 修改 /etc/pptpd.conf，配置localip和remoteip localip 10.200.0.1 remoteip 10.200.0.2-100 3. 修改 /etc/ppp/pptpd-options，配置dns ms-dns 8.8.8.8 ms-dns 8.8.4.4 4. 修改 /etc/pp">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>ubuntu server 下pptpd搭建VPN服务器</h1>
+            <p>2013年02月24日</p>
+            <div class="content">
+                <p>1. 安装pptpd</p>
+<pre><code>sudo apt-get install pptpd
+</code></pre><p>2. 修改 /etc/pptpd.conf，配置localip和remoteip</p>
+<pre><code>localip 10.200.0.1
+remoteip 10.200.0.2-100
+</code></pre><p>3. 修改 /etc/ppp/pptpd-options，配置dns</p>
+<pre><code>ms-dns 8.8.8.8
+ms-dns 8.8.4.4
+</code></pre><p>4. 修改 /etc/ppp/chap-secrets，配置用户名/密码</p>
+<pre><code># client    server  secret          IP addresses
+user         *   password    *
+</code></pre><p>5. 修改 /etc/sysctl.conf，取消下面这行的注释，并重新载入新的sysctl配置</p>
+<pre><code>net.ipv4.ip_forward=1
+sudo sysctl -p
+</code></pre><p>6. 利用iptables建立一个NAT</p>
+<pre><code>sudo apt-get intall iptables
+sudo iptables -t nat -A POSTROUTING -s 10.200.0.0/24 -o eth0 -j MASQUERADE
+sudo iptables-save &gt; /etc/iptables-rules // 保存配置
+</code></pre><p>修改 /etc/network/interfaces，在eth0的设置最末尾加上 pre-up iptables-restore &lt; /etc/iptables-rules</p>
+<p>7. 重起pptpd，搞定</p>
+<p>碰到无法保存iptables规则的情况只需要sudo -s，然后再iptables-save &gt; /etc/iptables-rules即可。</p>
+
+            </div>
+            <div class="tag">
+                
+                <a href="/tags/ubuntu/">ubuntu</a>
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/Network-failure/" title="公司网络的一次小故障">上一篇</a>
+            
+            
+            <a href="/Charity404/" title="公益404页面">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2020 徐树龙 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>

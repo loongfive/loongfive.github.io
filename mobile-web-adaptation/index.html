@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>移动端H5页面适配方案 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="移动端H5的适配我们采用 vw + rem 方案 说明如下（假设设计图宽度为750px时）： 设置 html { font-size: 100px; } 设置媒体查询，当视窗小于750px时，使用 vw 动态计算 html 的 font-size，计算公式：100 / 750 * 100 vw 设置 img { max-width: 100%; } html { font-size: 100px;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端H5页面适配方案">
+<meta property="og:url" content="https://www.xushulong.com/mobile-web-adaptation/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="移动端H5的适配我们采用 vw + rem 方案 说明如下（假设设计图宽度为750px时）： 设置 html { font-size: 100px; } 设置媒体查询，当视窗小于750px时，使用 vw 动态计算 html 的 font-size，计算公式：100 / 750 * 100 vw 设置 img { max-width: 100%; } html { font-size: 100px;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-28T07:16:38.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端H5页面适配方案">
+<meta name="twitter:description" content="移动端H5的适配我们采用 vw + rem 方案 说明如下（假设设计图宽度为750px时）： 设置 html { font-size: 100px; } 设置媒体查询，当视窗小于750px时，使用 vw 动态计算 html 的 font-size，计算公式：100 / 750 * 100 vw 设置 img { max-width: 100%; } html { font-size: 100px;">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>移动端H5页面适配方案</h1>
+            <p>2020年04月28日</p>
+            <div class="content">
+                <p>移动端H5的适配我们采用 vw + rem 方案</p>
+<p>说明如下（假设设计图宽度为750px时）：</p>
+<p>设置 html { font-size: 100px; }</p>
+<p>设置媒体查询，当视窗小于750px时，使用 vw 动态计算 html 的 font-size，计算公式：100 / 750 * 100 vw</p>
+<p>设置 img { max-width: 100%; }</p>
+<pre><code>html { font-size: 100px; }
+
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 13.333333vw;
+  }
+}
+
+img { max-width: 100%; }
+</code></pre><p>正常编写 css，所有尺寸均使用 rem 做单位，计算方式：设计图量取的 px 值除以100</p>
+<p>例如：</p>
+<p>100px =&gt; 1rem</p>
+<p>55px =&gt; .55rem</p>
+<p>1366px =&gt; 13.66rem</p>
+<p>页面中的所有 img 标签如果宽度不是100%，需要设定 rem 单位的尺寸</p>
+<p>所有背景图片需要设置 background-size</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            
+            <a href="/pm2/" title="pm2简易使用教程">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2020 徐树龙 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>

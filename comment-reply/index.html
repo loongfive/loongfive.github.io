@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>让主题支持typecho的嵌套回复 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="现在用的traction主题是从WP主题移植过来的，不知哪位大神当年移植的时候把原版的嵌套回复给阉割掉了 导致我现在开启评论回复功能之后，所有回复的评论前台显示不出来，无奈一直是关闭评论回复的 昨晚找到了最最原版的traction主题，参考了一下模板里面的结构，有翻阅了好多typecho模板的相关资料 觉得有点头绪，决定自己动手改模板 还好当年上二学位时C语言学了一些，才没被一串一串的php代码搞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="让主题支持typecho的嵌套回复">
+<meta property="og:url" content="https://www.xushulong.com/comment-reply/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="现在用的traction主题是从WP主题移植过来的，不知哪位大神当年移植的时候把原版的嵌套回复给阉割掉了 导致我现在开启评论回复功能之后，所有回复的评论前台显示不出来，无奈一直是关闭评论回复的 昨晚找到了最最原版的traction主题，参考了一下模板里面的结构，有翻阅了好多typecho模板的相关资料 觉得有点头绪，决定自己动手改模板 还好当年上二学位时C语言学了一些，才没被一串一串的php代码搞">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-28T07:16:38.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="让主题支持typecho的嵌套回复">
+<meta name="twitter:description" content="现在用的traction主题是从WP主题移植过来的，不知哪位大神当年移植的时候把原版的嵌套回复给阉割掉了 导致我现在开启评论回复功能之后，所有回复的评论前台显示不出来，无奈一直是关闭评论回复的 昨晚找到了最最原版的traction主题，参考了一下模板里面的结构，有翻阅了好多typecho模板的相关资料 觉得有点头绪，决定自己动手改模板 还好当年上二学位时C语言学了一些，才没被一串一串的php代码搞">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>让主题支持typecho的嵌套回复</h1>
+            <p>2011年10月03日</p>
+            <div class="content">
+                <p>现在用的traction主题是从WP主题移植过来的，不知哪位大神当年移植的时候把原版的嵌套回复给阉割掉了</p>
+<p>导致我现在开启评论回复功能之后，所有回复的评论前台显示不出来，无奈一直是关闭评论回复的</p>
+<p>昨晚找到了最最原版的traction主题，参考了一下模板里面的结构，有翻阅了好多typecho模板的相关资料</p>
+<p>觉得有点头绪，决定自己动手改模板</p>
+<p>还好当年上二学位时C语言学了一些，才没被一串一串的php代码搞的头晕</p>
+<p>首先要把comments.php中的显示评论改成简化评论结构，就是这种：</p>
+<pre><code>&lt;?php $comments-&gt;listComments(); ?&gt;
+</code></pre><p>然后再在前面通过function <strong>threadedComments</strong>来控制评论输出的结构，使之配合模板中的评论结构<a id="more"></a></p>
+<pre><code>&lt;?php $this-&gt;comments()-&gt;to($comments); ?&gt;
+
+&lt;?php function threadedComments($comments, $options) { 
+?&gt;
+            &lt;li id=&quot;&lt;?php $comments-&gt;theId(); ?&gt;&quot; class=&quot;comment&lt;?php $comments-&gt;alt(&apos; odd&apos;, &apos; even&apos;); ?&gt;&quot;&gt; 
+                &lt;div class=&quot;comment-box clear&quot;&gt; 
+                    &lt;div class=&quot;c-grav&quot;&gt; 
+                        &lt;?php $comments-&gt;gravatar(40, &apos;X&apos;, &apos;&apos;, &apos;avatar&apos;); ?&gt;
+                        &lt;div class=&quot;c-author&quot;&gt;&lt;?php $comments-&gt;author(); ?&gt;&lt;/div&gt; 
+                        &lt;div class=&quot;c-date&quot;&gt;&lt;?php $comments-&gt;date(&apos;Y-m-d&apos;); ?&gt;&lt;/div&gt; 
+                    &lt;/div&gt; 
+                    &lt;div class=&quot;c-body&quot;&gt; 
+
+&lt;?php $comments-&gt;content(); ?&gt;
+
+                        &lt;div class=&quot;comment-reply-link&quot;&gt; 
+                               &lt;?php $comments-&gt;reply(); //回复链接?&gt;
+                        &lt;/div&gt; 
+                    &lt;/div&gt;&lt;!--end c-body--&gt; 
+                &lt;/div&gt;&lt;!--end comment-box--&gt; 
+
+            &lt;/li&gt; 
+&lt;?php 
+}
+?&gt;
+
+&lt;?php $comments-&gt;listComments(); ?&gt;
+&lt;?php $comments-&gt;pageNav(); ?&gt;
+</code></pre><p>当然，还是会有细微的结构与模板中的有出入，没办法，再再CSS中自己控制一下吧</p>
+<p>由于小弟水平有限，当评论嵌套到3层的时候始终不能把页面效果调到最满意，索性后台直接设置了最多评论嵌套两层</p>
+<p>另外，在参考原版主题的时候，发现footer部分有一大块的内容居然也在移植的时候被精简掉了，这个难不倒我，自己动手扒过来 …</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/arp-ip-mac/" title="win7下绑定网关的ip和mac地址">上一篇</a>
+            
+            
+            <a href="/select-middle-record/" title="select查询中间记录的SQL语句">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2020 徐树龙 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>

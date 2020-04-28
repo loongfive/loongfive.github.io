@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>phpnow启用sqlite支持 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="PHPnow 是 Win32 下绿色免费的 Apache + PHP + MySQL 环境套件包。就一个文件夹，绿色，往硬盘里一扔，随时启用随时关闭，默认环境即可搞定大部分的php应用。 默认不支持sqlite，启用方法如下： 打开php配置文件，不知道在哪就看一下&amp;lt;?php phpinfo(); ?&amp;gt; 我的phpnow默认是在 E:\phpnow\php-5.2.14-Win32\p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phpnow启用sqlite支持">
+<meta property="og:url" content="https://www.xushulong.com/phpnow-sqlite/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="PHPnow 是 Win32 下绿色免费的 Apache + PHP + MySQL 环境套件包。就一个文件夹，绿色，往硬盘里一扔，随时启用随时关闭，默认环境即可搞定大部分的php应用。 默认不支持sqlite，启用方法如下： 打开php配置文件，不知道在哪就看一下&amp;lt;?php phpinfo(); ?&amp;gt; 我的phpnow默认是在 E:\phpnow\php-5.2.14-Win32\p">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-28T07:16:38.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="phpnow启用sqlite支持">
+<meta name="twitter:description" content="PHPnow 是 Win32 下绿色免费的 Apache + PHP + MySQL 环境套件包。就一个文件夹，绿色，往硬盘里一扔，随时启用随时关闭，默认环境即可搞定大部分的php应用。 默认不支持sqlite，启用方法如下： 打开php配置文件，不知道在哪就看一下&amp;lt;?php phpinfo(); ?&amp;gt; 我的phpnow默认是在 E:\phpnow\php-5.2.14-Win32\p">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>phpnow启用sqlite支持</h1>
+            <p>2012年07月18日</p>
+            <div class="content">
+                <p>PHPnow 是 Win32 下绿色免费的 Apache + PHP + MySQL 环境套件包。就一个文件夹，绿色，往硬盘里一扔，随时启用随时关闭，默认环境即可搞定大部分的php应用。</p>
+<p>默认不支持sqlite，启用方法如下：</p>
+<p>打开php配置文件，不知道在哪就看一下&lt;?php phpinfo(); ?&gt;</p>
+<p>我的phpnow默认是在 E:\phpnow\php-5.2.14-Win32\php-apache2handler.ini</p>
+<p>找到这三行：</p>
+<pre><code>extension=php_pdo.dll
+extension=php_pdo_sqlite.dll
+extension=php_sqlite.dll
+</code></pre><p>把他们前面的分号去掉即表示启用</p>
+<p>然后保存关闭即可</p>
+<p>如果没生效就重启一下phpnow。</p>
+<p>我测试了typecho，可以使用sqlite安装。</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/ubuntu-xfce/" title="给Ubuntu换上Xfce4.10">上一篇</a>
+            
+            
+            <a href="/xp-over/" title="2014,XP时代终于可以谢幕了">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2020 徐树龙 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>

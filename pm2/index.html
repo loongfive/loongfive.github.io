@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>pm2简易使用教程 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="简单记录一下如何在服务器上用pm2部署node项目。 常用命令：先全局安装： npm i pm2 -g 启动项目： pm2 start app.js ok! 项目已经跑起来了。 查看所有进程状态： pm2 list 更强大的监视界面： pm2 monit 想要开机自启动？先pm2 start程序，然后： pm2 save pm2 startup 更多用法npm install pm2 -g">
+<meta name="keywords" content="node,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pm2简易使用教程">
+<meta property="og:url" content="https://www.xushulong.com/pm2/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="简单记录一下如何在服务器上用pm2部署node项目。 常用命令：先全局安装： npm i pm2 -g 启动项目： pm2 start app.js ok! 项目已经跑起来了。 查看所有进程状态： pm2 list 更强大的监视界面： pm2 monit 想要开机自启动？先pm2 start程序，然后： pm2 save pm2 startup 更多用法npm install pm2 -g">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-28T07:16:38.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pm2简易使用教程">
+<meta name="twitter:description" content="简单记录一下如何在服务器上用pm2部署node项目。 常用命令：先全局安装： npm i pm2 -g 启动项目： pm2 start app.js ok! 项目已经跑起来了。 查看所有进程状态： pm2 list 更强大的监视界面： pm2 monit 想要开机自启动？先pm2 start程序，然后： pm2 save pm2 startup 更多用法npm install pm2 -g">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>pm2简易使用教程</h1>
+            <p>2017年07月25日</p>
+            <div class="content">
+                <p>简单记录一下如何在服务器上用pm2部署node项目。</p>
+<h2 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h2><p>先全局安装：</p>
+<pre><code>npm i pm2 -g
+</code></pre><p>启动项目：</p>
+<pre><code>pm2 start app.js
+</code></pre><p>ok! 项目已经跑起来了。</p>
+<p>查看所有进程状态：</p>
+<pre><code>pm2 list
+</code></pre><p>更强大的监视界面：</p>
+<pre><code>pm2 monit
+</code></pre><p>想要开机自启动？先pm2 start程序，然后：</p>
+<pre><code>pm2 save
+pm2 startup
+</code></pre><h2 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h2><pre><code>npm install pm2 -g     # 命令行安装 pm2 
+pm2 start app.js -i 4  # 后台运行pm2，启动4个app.js 
+                       # 也可以把&apos;max&apos; 参数传递给 start
+                       # 正确的进程数目依赖于Cpu的核心数目
+pm2 start app.js --name my-api # 命名进程
+pm2 list               # 显示所有进程状态
+pm2 monit              # 监视所有进程
+pm2 logs               # 显示所有进程日志
+pm2 stop all           # 停止所有进程
+pm2 restart all        # 重启所有进程
+pm2 reload all         # 0 秒停机重载进程 (用于 NETWORKED 进程)
+pm2 stop 0             # 停止指定的进程
+pm2 restart 0          # 重启指定的进程
+pm2 startup            # 产生 init 脚本 保持进程活着
+pm2 web                # 运行健壮的 computer API endpoint (http://localhost:9615)
+pm2 delete 0           # 杀死指定的进程
+pm2 delete all         # 杀死全部进程
+</code></pre>
+            </div>
+            <div class="tag">
+                
+                <a href="/tags/node/">node</a>
+                
+                <a href="/tags/前端/">前端</a>
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/mobile-web-adaptation/" title="移动端H5页面适配方案">上一篇</a>
+            
+            
+            <a href="/ftp-standard-passive/" title="FTP主动模式(PORT)与被动模式(PASV)">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2020 徐树龙 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>

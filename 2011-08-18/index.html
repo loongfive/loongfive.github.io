@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Typecho永久链接的设置 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="用Typecho的人都知道设置永久链接这功能，将链接静态化，不仅看起来舒服，而且对搜索引擎也更加友好。在后台设置了永久链接，打开重写功能，可能会提示检测失败，但是可以强制启动它。但可能并没生效，这时需要如下操作（对于一般的php空间） 在根目录下新建“.htaccess”文件，写入如下内容： # BEGIN RewriteEngine On RewriteBase / RewriteCond %{">
+<meta name="keywords" content="typecho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typecho永久链接的设置">
+<meta property="og:url" content="https://www.xushulong.com/2011-08-18/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="用Typecho的人都知道设置永久链接这功能，将链接静态化，不仅看起来舒服，而且对搜索引擎也更加友好。在后台设置了永久链接，打开重写功能，可能会提示检测失败，但是可以强制启动它。但可能并没生效，这时需要如下操作（对于一般的php空间） 在根目录下新建“.htaccess”文件，写入如下内容： # BEGIN RewriteEngine On RewriteBase / RewriteCond %{">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-28T07:16:38.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Typecho永久链接的设置">
+<meta name="twitter:description" content="用Typecho的人都知道设置永久链接这功能，将链接静态化，不仅看起来舒服，而且对搜索引擎也更加友好。在后台设置了永久链接，打开重写功能，可能会提示检测失败，但是可以强制启动它。但可能并没生效，这时需要如下操作（对于一般的php空间） 在根目录下新建“.htaccess”文件，写入如下内容： # BEGIN RewriteEngine On RewriteBase / RewriteCond %{">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>Typecho永久链接的设置</h1>
+            <p>2011年08月18日</p>
+            <div class="content">
+                <p>用Typecho的人都知道设置永久链接这功能，将链接静态化，不仅看起来舒服，而且对搜索引擎也更加友好。<br>在后台设置了永久链接，打开重写功能，可能会提示检测失败，但是可以强制启动它。<br>但可能并没生效，这时需要如下操作（对于一般的php空间）</p>
+<p>在根目录下新建“.htaccess”文件，写入如下内容：</p>
+<pre><code># BEGIN
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-httpd-php application/x-javascript
+# END
+</code></pre><p>把.htaccess文件的权限改为777，即可解决问题。<br>该方法Wordpress同样适用。</p>
+
+            </div>
+            <div class="tag">
+                
+                <a href="/tags/typecho/">typecho</a>
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/2011-08-19/" title="从SEO角度看strong标签和b标签">上一篇</a>
+            
+            
+            <a href="/301-redirect/" title="301重定向的应用一则">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2020 徐树龙 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>

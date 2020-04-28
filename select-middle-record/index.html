@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>select查询中间记录的SQL语句 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="在套一个CMS的模板，有这样一个新闻列表，第一条显示缩略图、标题、还有摘要，而后面的四条只显示标题， 模板文件中只能用这个CMS自己的标签，所以第一条新闻单独查询，后面的四条又用了一次循环查询的标签 查询第一条内容好办，但是跳过第一条记录查询第二条记录开始的往后四条记录就麻烦了点儿 select top 4 * from news where cid=1 and newsid not in (se">
+<meta property="og:type" content="article">
+<meta property="og:title" content="select查询中间记录的SQL语句">
+<meta property="og:url" content="https://www.xushulong.com/select-middle-record/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="在套一个CMS的模板，有这样一个新闻列表，第一条显示缩略图、标题、还有摘要，而后面的四条只显示标题， 模板文件中只能用这个CMS自己的标签，所以第一条新闻单独查询，后面的四条又用了一次循环查询的标签 查询第一条内容好办，但是跳过第一条记录查询第二条记录开始的往后四条记录就麻烦了点儿 select top 4 * from news where cid=1 and newsid not in (se">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-28T07:16:38.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="select查询中间记录的SQL语句">
+<meta name="twitter:description" content="在套一个CMS的模板，有这样一个新闻列表，第一条显示缩略图、标题、还有摘要，而后面的四条只显示标题， 模板文件中只能用这个CMS自己的标签，所以第一条新闻单独查询，后面的四条又用了一次循环查询的标签 查询第一条内容好办，但是跳过第一条记录查询第二条记录开始的往后四条记录就麻烦了点儿 select top 4 * from news where cid=1 and newsid not in (se">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>select查询中间记录的SQL语句</h1>
+            <p>2011年10月02日</p>
+            <div class="content">
+                <p>在套一个CMS的模板，有这样一个新闻列表，第一条显示缩略图、标题、还有摘要，而后面的四条只显示标题，</p>
+<p>模板文件中只能用这个CMS自己的标签，所以第一条新闻单独查询，后面的四条又用了一次循环查询的标签</p>
+<p>查询第一条内容好办，但是跳过第一条记录查询第二条记录开始的往后四条记录就麻烦了点儿</p>
+<pre><code>select top 4 * from news where cid=1 and newsid not in (select top 1 newsid from news where cid=1 order by newsid desc
+</code></pre><p>嵌套了一个select</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/comment-reply/" title="让主题支持typecho的嵌套回复">上一篇</a>
+            
+            
+            <a href="/office-culture/" title="看看我们办公室的小创意">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2020 徐树龙 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/a.js"></script>
+
+</body>
+
+</html>
