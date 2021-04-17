@@ -19,11 +19,3 @@ $(function() {
         $('body,html').animate({ scrollTop: 0 }, 200)
     })
 })
-
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?e3220b1c82bf99528bdc24ccb32e00e9";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
