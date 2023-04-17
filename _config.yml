@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://www.xushulong.com
+url: https://xusl.top
 root: /
 permalink: :title/
 permalink_defaults:
@@ -73,4 +73,4 @@ deploy:
 #  repo: https://git.dev.tencent.com/xiao567/blog.git
 #  branch: public
 - type: git
-  repo: https://2a8568f4253c0e949d282745ed881d9ee49245a4@github.com/loongfive/loongfive.github.io.git
+  repo: https://github.com/loongfive/loongfive.github.io.git
