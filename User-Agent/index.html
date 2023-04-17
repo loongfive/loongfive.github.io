@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>User-Agent（浏览器标识）的修改 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="先说明一下UA是什么，User Agent中文名为用户代理，简称 UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等。 一些网站常常通过判断 UA 来给不同的操作系统、不同的浏览器发送不同的页面，因此可能造成某些页面无法在某个浏览器中正常显示，但通过伪装 UA 可以绕过检测。 查看自己的UA，很简单，访问这个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="User-Agent（浏览器标识）的修改">
+<meta property="og:url" content="https://xusl.top/User-Agent/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="先说明一下UA是什么，User Agent中文名为用户代理，简称 UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等。 一些网站常常通过判断 UA 来给不同的操作系统、不同的浏览器发送不同的页面，因此可能造成某些页面无法在某个浏览器中正常显示，但通过伪装 UA 可以绕过检测。 查看自己的UA，很简单，访问这个">
+<meta property="og:locale">
+<meta property="article:published_time" content="2012-11-18T10:17:12.000Z">
+<meta property="article:modified_time" content="2023-04-17T05:28:40.187Z">
+<meta name="twitter:card" content="summary">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58Y4W1FKN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B58Y4W1FKN');
+</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>User-Agent（浏览器标识）的修改</h1>
+            <p>2012年11月18日</p>
+            <div class="content">
+                <p>先说明一下UA是什么，User Agent中文名为用户代理，简称 UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等。</p>
+<p>一些网站常常通过判断 UA 来给不同的操作系统、不同的浏览器发送不同的页面，因此可能造成某些页面无法在某个浏览器中正常显示，但通过伪装 UA 可以绕过检测。</p>
+<p>查看自己的UA，很简单，访问这个地址就能看到了：<a target="_blank" rel="noopener" href="http://www.useragentstring.com/">http://www.useragentstring.com/</a></p>
+<p>可以很清楚的看到我是ubunru12.04+chrome浏览器，这样的默认环境我只要一登录中国移动的网上营业厅，就直接给我跳转到了wap.js.1086.cn，（我家里是移动宽带），囧死了，其实之前也碰到过被几个其他的网站识别成手机用户，直接跳转到网站的wap版。。。很无语，不过今天在微薄上被人一提醒，哦，对的，可以修改浏览器UA试试看。</p>
+<p>收集了几个常见的浏览器的修改方法在下面：</p>
+<span id="more"></span>
+
+<blockquote>
+<p>IE浏览器修改User-agent，修改注册表</p>
+</blockquote>
+<blockquote>
+<p>User-Agent在注册表的位置<br>[HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionInternet SettingsUser-AgentPost Platform] 下，新建字符串值，内容留空，名字为你想在 User-Agent 中加入的字符，这里以 “motorolarokre2″为例。修改注册表对应的 REG 文件如下：<br>Windows Registry Editor Version 5.00</p>
+</blockquote>
+<blockquote>
+<p>[HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionInternet SettingsUser-AgentPost Platform]<br>“motorolarokre2″=””</p>
+</blockquote>
+<blockquote>
+<p>修改后重启IE浏览器即可。</p>
+</blockquote>
+<blockquote>
+<p>IE的user-agent取值，下面是下列地址的组合+一些默认值<br>HKCUSoftwareMicrosoftWindowsCurrentVersionInternet SettingsUser-AgentPost Platform<br>HKLMSoftwareMicrosoftWindowsCurrentVersionInternet SettingsUser-AgentPost Platform<br>HKLMSoftwareMicrosoftWindowsCurrentVersionInternet Settings5.0User-AgentPost Platform</p>
+</blockquote>
+<blockquote>
+<p>IE8的User-Agents：</p>
+</blockquote>
+<blockquote>
+<p>IE8 on Windows Vista (兼容浏览)<br>Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/4.0)</p>
+</blockquote>
+<blockquote>
+<p>IE8 on Windows Vista<br>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)</p>
+</blockquote>
+<blockquote>
+<p>IE8 on Windows 7<br>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)</p>
+</blockquote>
+<blockquote>
+<p>64-bit IE on 64-bit Windows 7:<br>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Win64; x64; Trident/4.0)</p>
+</blockquote>
+<blockquote>
+<p>32-bit IE on 64-bit Windows 7:<br>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0)</p>
+</blockquote>
+<blockquote>
+<p>FireFox修改User-agent</p>
+</blockquote>
+<blockquote>
+<p>方法1：</p>
+</blockquote>
+<blockquote>
+<p>在地址栏输入“about:config”，按下回车进入设置菜单。</p>
+</blockquote>
+<blockquote>
+<p>找到“general.useragent.override”，如果没有这一项，则点右键“新建”-&gt;“字符串”，输入这个字符串。</p>
+</blockquote>
+<blockquote>
+<p>将其值设为自己想要的UserAgent。</p>
+</blockquote>
+<blockquote>
+<p>方法2：</p>
+</blockquote>
+<blockquote>
+<p>安装插件：User Agent Switcher</p>
+</blockquote>
+<blockquote>
+<p>Chrome修改User-agent</p>
+</blockquote>
+<blockquote>
+<p>方法一：启动时加上参数：–user-agent=”你自己的UserAgent”</p>
+</blockquote>
+<blockquote>
+<p>方法二：修改chrome.dll。把里面疑似UserAgent的字符串改为自己的。</p>
+</blockquote>
+<p>修改之后我的火狐已经华丽丽的变身为win7+IE8了：</p>
+<p>也终于可以看到完整版的移动网厅了</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/write-blog/" title="写博客是一种写作式学习">上一篇</a>
+            
+            
+            <a href="/win-ubuntu-time/" title="win+ubuntu双系统时间不一致">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2023 小徐de私地 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>

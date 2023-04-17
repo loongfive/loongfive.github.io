@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>word查找替换中通配符的使用详解 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="用到了就查了， 查到了就标记下， 有用，类似正则表达式但不太一样。office党必备！ 通配符是一些特殊的语句，主要作用是用来模糊搜索和替换使用。在Word、Excel中使用通配符可以查找和替换文字、格式、段落标记、回车符、分页符（分页符：上一页结束以及下一页开始的位置。可以使用通配符和代码来扩展搜索。 Word、Excel中勾选使用通配符复选框 任意单个字符：?任意数字（单个）：[0-9]任意英">
+<meta property="og:type" content="article">
+<meta property="og:title" content="word查找替换中通配符的使用详解">
+<meta property="og:url" content="https://xusl.top/word-wildcards/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="用到了就查了， 查到了就标记下， 有用，类似正则表达式但不太一样。office党必备！ 通配符是一些特殊的语句，主要作用是用来模糊搜索和替换使用。在Word、Excel中使用通配符可以查找和替换文字、格式、段落标记、回车符、分页符（分页符：上一页结束以及下一页开始的位置。可以使用通配符和代码来扩展搜索。 Word、Excel中勾选使用通配符复选框 任意单个字符：?任意数字（单个）：[0-9]任意英">
+<meta property="og:locale">
+<meta property="article:published_time" content="2013-09-30T17:42:00.000Z">
+<meta property="article:modified_time" content="2023-04-17T05:28:40.187Z">
+<meta name="twitter:card" content="summary">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58Y4W1FKN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B58Y4W1FKN');
+</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>word查找替换中通配符的使用详解</h1>
+            <p>2013年09月30日</p>
+            <div class="content">
+                <p>用到了就查了， 查到了就标记下， 有用，类似正则表达式但不太一样。office党必备！</p>
+<p>通配符是一些特殊的语句，主要作用是用来模糊搜索和替换使用。在Word、Excel中使用通配符可以查找和替换文字、格式、段落标记、回车符、分页符（分页符：上一页结束以及下一页开始的位置。可以使用通配符和代码来扩展搜索。</p>
+<p><em><strong>Word、Excel中勾选使用通配符复选框</strong></em></p>
+<p>任意单个字符：?<br>任意数字（单个）：[0-9]<br>任意英文字母：[a-zA-Z]<br>段落标记：^13<br>手动换行符：^lor^11<br>图形：^g<br>1/4长划线：^q<br>长划线：^+<br>短划线：^=<br>制表符：^t<br>脱字号：^^<br>分栏符：^nor^14<br>分节符/分页符：^m<br>省略号：^i<br>全角省略号：^j<br>无宽非分隔符：^z<br>无宽可选分隔符：^x<br>不间断空格：^s<br>不间断连字符：^~<br>表达式：()<br>单词结尾：&lt;<br>单词开头：&gt;<br>任意字符串：*<br>指定范围外任意单个字符：[!x-z]<br>指定范围内任意单个字符：[-]<br>1个以上前一字符或表达式：@<br>n个前一字符或表达式：{n}<br>n个以上前一字符或表达式：{n,}<br>n到m个前一字符或表达式：{n,m}<br>所有小写英文字母：[a-z]<br>所有大写英文字母：[A-Z]<br>所有西文字符：[^1-^127]<br>所有中文汉字和中文标点：[!^1-^127]<br>所有中文汉字（CJK统一字符）：[一-龥]or[一-﨩]<br>所有中文标点：[!一-龥^1-^127]<br>所有非数字字符：[!0-9]<br>要查找的表达式\n：<br>段落标记：^p<br>手动换行符↓：^l<br>查找的内容：^&amp;<br>剪贴板内容：^c<br>省略号：^i<br>全角省略号：^j<br>制表符：^t<br>长划线：^+<br>1/4长划线(—)：^q<br>短划线(–)：^=<br>脱字号：^^<br>手动分页符/分节符：^m<br>可选连字符（_）：^-<br>不间断连字符（-）：^~<br>不间断空格：^s<br>无宽非分隔符：^z<br>无宽可选分隔符：^x<br>分栏符：^n<br>§分节符：^%<br>¶段落符号：^v</p>
+<span id="more"></span>
+
+<p>##Word通配符用法详解</p>
+<p>###一、任意单个字符：</p>
+<p>“?”可以代表任意单个字符，输入几个”?”就代表几个未知字符。如：</p>
+<p>输入”?国”就可以找到诸如”中国”、”美国”、”英国”等字符；<br>输入”???国”可以找到”孟加拉国”等字符。</p>
+<p>###二、任意多个字符：</p>
+<p>“*”可以代表任意多个字符。如：</p>
+<p>输入”*国”就可以找到”中国”、”美国”、”孟加拉国”等字符。</p>
+<p>###三、指定字符之一：</p>
+<p>“[]”框内的字符可以是指定要查找的字符之一，如：</p>
+<p>输入”[中美]国”就可以找到”中国”、”美国”。又如：<br>输入”th[iu]g”，就可查找到”thigh”和”thug”。<br>输入”[学硕博]士”，查找到的将会是学士、士、硕士、博士。<br>输入”[大中小]学”可以查找到”大学”、”中学”或”小学”，但不查找”求学”、”开学”等。<br>输入”[高矮]个”的话，Word查找工具就可以找到”高个”、”矮个”等内容。</p>
+<p>###四、指定范围内的任意单个字符：</p>
+<p>“[x-x]”可以指定某一范围内的任意单个字符，如：</p>
+<p>输入”[a-e]ay”就可以找到”bay”、”day”等字符，要注意的是指定范围内的字符必须用升序。用升序。如：<br>输入”[a-c]mend”的话，Word查找工具就可以找到”amend”、”bmend”、”cmend”等字符内容。</p>
+<p>###五、排除指定范、排除指定范围内的任意单个字符：</p>
+<p>“[!x-x]”可以用来排除指定范围内的任意单个字符，如：<br>输入”[!c-f]”就可以找到”bay”、”gay”、”lay”等字符，但是不等字符，但是不会找到”cay”、”day”等字符。要注意范围必须用升序。<br>又如：<br>输入”[!a-c]”的话，word程序就可以找到”good”、”see”、”these”等目标字符，而所有包含字符a、b、c之类的内容都不会在查找结果中出现。<br>又如：<br>输入”m[!a]st”，用，用来查找”mist”和”most”不会查找”mast”。<br>输入”[!a]n”，查到的将会是除an以外的所有可能组合如：合如：in、on等。</p>
+<p>###六、指定前一字符的个数：</p>
+<p>“{n}”可以用来指定要查找的字符中包含前一字符的个数，如：</p>
+<p>输入”cho{1}se”就是说包含1个前一字符”o”，可以找到”chose”，输入”cho{2}se”就是说包含2个前一字符”o”，可以找到，”choose”。<br>又如：<br>输入”lit{1}le”就是说包含1个前一字符”t”，可以找到”litle”。<br>输入”lit{2}le”就是说包含2个前一字符”t”，可以找到”little”。<br>输入”te{2}n”，表示查找”teen”而不会查找”ten”。<br>输入”of{2}ice”，查找到的将会是office。</p>
+<p>###七、指定前一字符、指定前一字符数范围：</p>
+<p>“{x,x}”可以用指定要查找字符中前一字符数范围，如：<br>输入”cho{1,2}”，则说明包含前一字符”o”数目范围是1-2个，则可以找到”chose”、”choose”。</p>
+<p>###八、一个以上的前一字符：</p>
+<p>“@”可以用来指定要查找字符中包含一个以上的前一字符，如：</p>
+<p>输入”cho@se”，就可以找到，”chose”、”choose”等字符。</p>
+<p>###九、指定起始字符串：</p>
+<p>“&lt;”可以用来指定要查找字符中的起始字符串，如：</p>
+<p>输入”&lt;ag”，就说明要查找的字符的起始字符为”ag”，可以找到”ago”、”agree”、”again”等字符。<br>输入”&lt;te”的话，可能查到”ten”、”tea”等。</p>
+<p>###十、指定结尾字符串：</p>
+<p>“&gt;”可以用来指定要查找字符中的结尾字符串，如：</p>
+<p>输入”er&gt;”，就说明要查找的字符的结尾字符为”er”，可以找到”ver”、”her”、”lover”等等。<br>输入”en&gt;”，就说明要查找到以”en”结尾的所有目标对象，可能找到”ten”、”pen”、”men”<br>输入”up&gt;”，就说明要查找到以”up”结尾的所有目标对象，例如会找到”setup”、”cup”等等。</p>
+<p>###十一、表达式查找：</p>
+<p>“（）”，尤其用于多个关键词的组合查找。</p>
+<p>键入”（America）（China）”，在”替换为”中键入”\2\1”，Word找到”AmericaChina”并替换为”ChinaAmerica”。<br>输入”&lt;(江山)*(多娇)&gt;”，就表示查找的是所有以”江山”开头并且以”多娇”结尾的字符串。</p>
+<p>另外为了更精确的查找，你还可以把以上的通配符联合起来使用，如：<br>输入”&lt;(ag)<em>(er)&gt;”则表示查找所有以”ag”开头并且以”er”结尾的单词，注意这时需要用括号将来区分开不同的查找规则。最后还要注意如果要查找已经被定义为通配符的字符，如”</em>“、”?”等字符，必须在该字符前面加上反斜杠”&quot;，如：输入”*“则表示查找字符”*”。</p>
+<p><em><strong>以下内容在Word、Excel中清除使用通配符复选框</strong></em></p>
+<p>任意单个字符^?<br>任意数字：^#<br>任意英文字母：^$<br>段落标记：^p<br>手动换行符：^l<br>图形：^gor^1<br>1/4长划线：^+<br>长划线：^j<br>短划线：^q<br>制表符：^t<br>脱字号：^<br>分栏符：^v<br>分节符：^b<br>省略号：^n<br>全角省略号：^i<br>无宽非分隔符：^z<br>无宽可选分隔符：^x<br>不间断空格：^s<br>不间断连字符：^~<br>¶段落符号：^%<br>§分节符：^<br>脚注标记：^for^2<br>可选连字符：^-<br>空白区域：^w<br>手动分页符：^m<br>尾注标记：^e<br>域：^d<br>Unicode字符：^Unnnn<br>全角空格：^u8195<br>半角空格：^32or^u8194<br>批注：^aor^5<br>段落标记：^p<br>手动换行符↓：^l<br>查找的内容：^&amp;<br>剪贴板内容：^c<br>省略号：^i<br>全角省略号：^j<br>制表符：^t<br>长划线：^+<br>1/4长划线(—)：^q<br>短划线(–)：^=<br>脱字号：^^<br>手动分页符：^mor^12<br>可选连字符（_）：^-<br>不间断连字符（-）：^~<br>不间断空格：^s<br>无宽非分隔符：^z<br>无宽可选分隔符：^x<br>分栏符：^n<br>§分节符：^%<br>¶段落符号：^v</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/ppt-picture-fuzzy/" title="终于搞懂了PPT里面插图片模糊的问题">上一篇</a>
+            
+            
+            <a href="/traffic-secret/" title="《流量的秘密》">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2023 小徐de私地 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>

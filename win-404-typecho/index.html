@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>win主机通过自定义404页面来实现typecho永久链接 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="&lt;?php $qs &#x3D; $_SERVER[&#39;QUERY_STRING&#39;]; $pos &#x3D; strrpos($qs, &#39;:&#x2F;&#x2F;&#39;); $pos &#x3D; strpos($qs, &#39;&#x2F;&#39;, $pos + 4); $_SERVER[&#39;REQUEST_URI&#39;] &#x3D; substr($qs, $pos); $_SERVER[&#39;PATH_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="win主机通过自定义404页面来实现typecho永久链接">
+<meta property="og:url" content="https://xusl.top/win-404-typecho/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="&lt;?php $qs &#x3D; $_SERVER[&#39;QUERY_STRING&#39;]; $pos &#x3D; strrpos($qs, &#39;:&#x2F;&#x2F;&#39;); $pos &#x3D; strpos($qs, &#39;&#x2F;&#39;, $pos + 4); $_SERVER[&#39;REQUEST_URI&#39;] &#x3D; substr($qs, $pos); $_SERVER[&#39;PATH_">
+<meta property="og:locale">
+<meta property="article:published_time" content="2012-06-01T01:42:26.000Z">
+<meta property="article:modified_time" content="2023-04-17T05:28:40.187Z">
+<meta property="article:tag" content="typecho">
+<meta name="twitter:card" content="summary">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58Y4W1FKN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B58Y4W1FKN');
+</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>win主机通过自定义404页面来实现typecho永久链接</h1>
+            <p>2012年06月01日</p>
+            <div class="content">
+                <pre><code>&lt;?php
+$qs = $_SERVER[&#39;QUERY_STRING&#39;];
+$pos = strrpos($qs, &#39;://&#39;);
+$pos = strpos($qs, &#39;/&#39;, $pos + 4);
+$_SERVER[&#39;REQUEST_URI&#39;] = substr($qs, $pos);
+$_SERVER[&#39;PATH_INFO&#39;] = $_SERVER[&#39;REQUEST_URI&#39;];
+include(&#39;index.php&#39;);
+</code></pre>
+<p>新建个php页面，保存上面的内容，然后自定义404页面为这个页面。</p>
+<p>然后typecho后台强制开启永久链接，可以正常访问，但是后台无法使用，前台无法评论。</p>
+<p>搜索论坛找到了答案，<a target="_blank" rel="noopener" href="http://forum.typecho.org/topic.php?id=386">原文链接</a>，现成的插件，装上就一切搞定，原文中有下载地址，FixIIS6Rewrite.zip ，也可以<a target="_blank" rel="noopener" href="http://dl.dbank.com/c0cpjblvai">点击这里</a>。</p>
+
+            </div>
+            <div class="tag">
+                
+                <a href="/tags/typecho/">typecho</a>
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/cn-domain/" title="围观各种对.cn个人域名的吐槽">上一篇</a>
+            
+            
+            <a href="/BTmono/" title="让单声道蓝牙耳机也可以听歌的小软件BTmono">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2023 小徐de私地 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>

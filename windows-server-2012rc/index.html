@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>体验Windows Server 2012 RC - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="找了一台闲置电脑，装上了昨晚下载的Windows Server 2012 RC体验一番，装好系统之后设置好ip，开起远程，以后就全部可以远程桌面管理了。 先配置好web服务器和文件服务器，虽然有些功能地方不太一样，但是都一个套路，轻车熟路。 一直听说Hyper-V虚拟化多么高级多么好，就是没机会尝试，不过WS2012RC直接集成了，装上就能用，虽然没用过，但是Hyper-V管理界面的向导很清晰，很">
+<meta property="og:type" content="article">
+<meta property="og:title" content="体验Windows Server 2012 RC">
+<meta property="og:url" content="https://xusl.top/windows-server-2012rc/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="找了一台闲置电脑，装上了昨晚下载的Windows Server 2012 RC体验一番，装好系统之后设置好ip，开起远程，以后就全部可以远程桌面管理了。 先配置好web服务器和文件服务器，虽然有些功能地方不太一样，但是都一个套路，轻车熟路。 一直听说Hyper-V虚拟化多么高级多么好，就是没机会尝试，不过WS2012RC直接集成了，装上就能用，虽然没用过，但是Hyper-V管理界面的向导很清晰，很">
+<meta property="og:locale">
+<meta property="article:published_time" content="2012-08-01T10:17:12.000Z">
+<meta property="article:modified_time" content="2023-04-17T05:28:40.187Z">
+<meta name="twitter:card" content="summary">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58Y4W1FKN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B58Y4W1FKN');
+</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>体验Windows Server 2012 RC</h1>
+            <p>2012年08月01日</p>
+            <div class="content">
+                <p>找了一台闲置电脑，装上了昨晚下载的Windows Server 2012 RC体验一番，装好系统之后设置好ip，开起远程，以后就全部可以远程桌面管理了。</p>
+<p>先配置好web服务器和文件服务器，虽然有些功能地方不太一样，但是都一个套路，轻车熟路。</p>
+<p>一直听说Hyper-V虚拟化多么高级多么好，就是没机会尝试，不过WS2012RC直接集成了，装上就能用，虽然没用过，但是Hyper-V管理界面的向导很清晰，很顺利的完成了虚拟机的新建、设置和系统安装，总的来说体验非常好，比vm、vbox、vpc好用。</p>
+<p>虚拟出了一台2003，和一台ubuntu server 12.04，各分了256的内存，电脑总共就2G的内存，虽然内存分的少，但是运行起来完全没问题，一般的VPS也就这配置嘛。以前玩ubuntu都是桌面版的，第一次装server版，不过做服务器真的没必要装桌面环境，又站地方而且还多余，不知道干什么用先配起来再说，LAMP，SSH,，samba，两台虚拟机均能联网，外部访问也正常。</p>
+<p>基本上这么下来就可以直接取代原来的那台装了2003的服务器了，趁下班之前直接把机器扔到了机房，接上电源和网线，开机，新版本的server功能还真是强大，留着以后慢慢研究、学习。</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/shengda-vps/" title="试用盛大云VPS">上一篇</a>
+            
+            
+            <a href="/ubuntu-xfce/" title="给Ubuntu换上Xfce4.10">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2023 小徐de私地 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>NETGEAR 网件WNDR4300刷openwrt shadowsocks科学上网 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="主要分3步：1.准备工作； 2.刷openwrt&#x2F;安装shadowsocks&#x2F;安装shadowsocks GUI&#x2F;安装Chinadns&#x2F;ChinadnsGui； 3.配置； 准备工作：路由4300，用牙签撸到绿灯稳定的一亮一亮， 修改本机IP：192.168.1.2 子网掩码：255.255.255.0 然后使用tftp 刷openwrt  我是下载原版的最新版本 下载地址：http:&#x2F;&#x2F;down">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NETGEAR 网件WNDR4300刷openwrt shadowsocks科学上网">
+<meta property="og:url" content="https://xusl.top/wndr4300-openwrt-shadowsocks/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="主要分3步：1.准备工作； 2.刷openwrt&#x2F;安装shadowsocks&#x2F;安装shadowsocks GUI&#x2F;安装Chinadns&#x2F;ChinadnsGui； 3.配置； 准备工作：路由4300，用牙签撸到绿灯稳定的一亮一亮， 修改本机IP：192.168.1.2 子网掩码：255.255.255.0 然后使用tftp 刷openwrt  我是下载原版的最新版本 下载地址：http:&#x2F;&#x2F;down">
+<meta property="og:locale">
+<meta property="og:image" content="https://xusl.top/images/wndr4300-openwrt-shadowsocks.jpg">
+<meta property="article:published_time" content="2015-03-15T02:40:26.000Z">
+<meta property="article:modified_time" content="2023-04-17T05:28:40.187Z">
+<meta property="article:tag" content="openwrt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xusl.top/images/wndr4300-openwrt-shadowsocks.jpg">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58Y4W1FKN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B58Y4W1FKN');
+</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>NETGEAR 网件WNDR4300刷openwrt shadowsocks科学上网</h1>
+            <p>2015年03月15日</p>
+            <div class="content">
+                <h2 id="主要分3步："><a href="#主要分3步：" class="headerlink" title="主要分3步："></a>主要分3步：</h2><p>1.准备工作；</p>
+<p>2.刷openwrt/安装shadowsocks/安装shadowsocks GUI/安装Chinadns/ChinadnsGui；</p>
+<p>3.配置；</p>
+<h2 id="准备工作："><a href="#准备工作：" class="headerlink" title="准备工作："></a>准备工作：</h2><p>路由4300，用牙签撸到绿灯稳定的一亮一亮，</p>
+<p>修改本机IP：192.168.1.2 子网掩码：255.255.255.0</p>
+<p>然后使用tftp 刷openwrt </p>
+<p>我是下载原版的最新版本</p>
+<p>下载地址：<a target="_blank" rel="noopener" href="http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/nand/openwrt-ar71xx-nand-wndr4300-ubi-factory.img">http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/nand/openwrt-ar71xx-nand-wndr4300-ubi-factory.img</a></p>
+<p>正常的话，路由闪几下就启动了，需要手动重启一下路由器，不然5G不正常</p>
+<p>开始安装 ss，ssgui，chinadns，chinadnsgui</p>
+<p>我用的是aa65535这哥们的编译版本，看他得说明，反正不错！</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aa65535/openwrt-shadowsocks">https://github.com/aa65535/openwrt-shadowsocks</a></p>
+<p>我这里用到的最新版本ss，ssgui，chinadns，chinadnsgui </p>
+<p>打包下载地址： <a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1dD3sf5J">http://pan.baidu.com/s/1dD3sf5J</a></p>
+<h2 id="开始安装："><a href="#开始安装：" class="headerlink" title="开始安装："></a>开始安装：</h2><p>解压出来后，将 所有的ipk 上传到 /tmp</p>
+<pre><code>scp *.ipk root@192.168.1.1:/tmp
+</code></pre>
+<p>安装</p>
+<pre><code>opkg install *.ipk
+</code></pre>
+<p>如果出现错误，依赖包的没有，安装下：</p>
+<pre><code>opkg install libopenssl 
+</code></pre>
+<p>或者</p>
+<pre><code>opkg install libpolarssl
+</code></pre>
+<p>接着修改dnsmasq</p>
+<pre><code>vim /etc/dnsmasq.conf
+</code></pre>
+<p>最后加入</p>
+<pre><code>no-resolv
+server=127.0.0.1#5353
+</code></pre>
+<p>接着去 面板里 修改ss的服务器信息就ok了</p>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p><img src="/images/wndr4300-openwrt-shadowsocks.jpg"></p>
+<p>好了，现在就是基本都ok了</p>
+<p>然后就可以翻墙了</p>
+
+            </div>
+            <div class="tag">
+                
+                <a href="/tags/openwrt/">openwrt</a>
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/ftp-standard-passive/" title="FTP主动模式(PORT)与被动模式(PASV)">上一篇</a>
+            
+            
+            <a href="/uefi-gpt-win81/" title="UEFI + GPT重新安装Win8.1">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2023 小徐de私地 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>

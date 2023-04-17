@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>select查询中间记录的SQL语句 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="在套一个CMS的模板，有这样一个新闻列表，第一条显示缩略图、标题、还有摘要，而后面的四条只显示标题， 模板文件中只能用这个CMS自己的标签，所以第一条新闻单独查询，后面的四条又用了一次循环查询的标签 查询第一条内容好办，但是跳过第一条记录查询第二条记录开始的往后四条记录就麻烦了点儿 select top 4 * from news where cid&#x3D;1 and newsid not in (se">
+<meta property="og:type" content="article">
+<meta property="og:title" content="select查询中间记录的SQL语句">
+<meta property="og:url" content="https://xusl.top/select-middle-record/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="在套一个CMS的模板，有这样一个新闻列表，第一条显示缩略图、标题、还有摘要，而后面的四条只显示标题， 模板文件中只能用这个CMS自己的标签，所以第一条新闻单独查询，后面的四条又用了一次循环查询的标签 查询第一条内容好办，但是跳过第一条记录查询第二条记录开始的往后四条记录就麻烦了点儿 select top 4 * from news where cid&#x3D;1 and newsid not in (se">
+<meta property="og:locale">
+<meta property="article:published_time" content="2011-10-02T06:14:12.000Z">
+<meta property="article:modified_time" content="2023-04-17T05:28:40.187Z">
+<meta name="twitter:card" content="summary">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58Y4W1FKN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B58Y4W1FKN');
+</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>select查询中间记录的SQL语句</h1>
+            <p>2011年10月02日</p>
+            <div class="content">
+                <p>在套一个CMS的模板，有这样一个新闻列表，第一条显示缩略图、标题、还有摘要，而后面的四条只显示标题，</p>
+<p>模板文件中只能用这个CMS自己的标签，所以第一条新闻单独查询，后面的四条又用了一次循环查询的标签</p>
+<p>查询第一条内容好办，但是跳过第一条记录查询第二条记录开始的往后四条记录就麻烦了点儿</p>
+<pre><code>select top 4 * from news where cid=1 and newsid not in (select top 1 newsid from news where cid=1 order by newsid desc
+</code></pre>
+<p>嵌套了一个select</p>
+
+            </div>
+            <div class="tag">
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/comment-reply/" title="让主题支持typecho的嵌套回复">上一篇</a>
+            
+            
+            <a href="/office-culture/" title="看看我们办公室的小创意">下一篇</a>
+            
+        </div>
+
+        <footer>
+            <p>© 2023 小徐de私地 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>

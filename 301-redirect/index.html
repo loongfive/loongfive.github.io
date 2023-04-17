@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>301重定向的应用一则 - 小徐de私地</title>
+<link rel="stylesheet" href="/css/style.min.css">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="description" content="301重定向对于SEO的作用就不多强调了，用于网址的永久变更，而且会把权重啊、PR啊什么的全部转移到新的网址上。 这里说一下利用301重定向功能把网站的地址统一为loongfive.info，就是不带www的形式。 实现301重定向的方法很多种，这里用的是.htaccess实现301转向，在.htaccess文件中加入如下语句： RewriteEngine on RewriteCond %&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="301重定向的应用一则">
+<meta property="og:url" content="https://xusl.top/301-redirect/index.html">
+<meta property="og:site_name" content="小徐de私地">
+<meta property="og:description" content="301重定向对于SEO的作用就不多强调了，用于网址的永久变更，而且会把权重啊、PR啊什么的全部转移到新的网址上。 这里说一下利用301重定向功能把网站的地址统一为loongfive.info，就是不带www的形式。 实现301重定向的方法很多种，这里用的是.htaccess实现301转向，在.htaccess文件中加入如下语句： RewriteEngine on RewriteCond %&amp;#12">
+<meta property="og:locale">
+<meta property="article:published_time" content="2011-08-18T07:27:48.000Z">
+<meta property="article:modified_time" content="2023-04-17T05:28:40.187Z">
+<meta property="article:tag" content="seo">
+<meta name="twitter:card" content="summary">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58Y4W1FKN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B58Y4W1FKN');
+</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h2><a href="/">小徐de私地</a></h2>
+            <p>越学习，越发现自己的无知 ...</p>
+        </header>
+
+        <article>
+            <h1>301重定向的应用一则</h1>
+            <p>2011年08月18日</p>
+            <div class="content">
+                <p>301重定向对于SEO的作用就不多强调了，用于网址的永久变更，而且会把权重啊、PR啊什么的全部转移到新的网址上。</p>
+<p>这里说一下利用301重定向功能把网站的地址统一为loongfive.info，就是不带www的形式。</p>
+<p>实现301重定向的方法很多种，这里用的是.htaccess实现301转向，在.htaccess文件中加入如下语句：</p>
+<pre><code>RewriteEngine on
+RewriteCond %&#123;HTTP_HOST&#125; ^www\.loongfive\.info$ [NC]
+RewriteRule ^(.*)$ http://loongfive.info/$1 [L,R=301]
+</code></pre>
+<p>记得把上面的域名部分改掉。</p>
+<p>这样以后在访问带有www的链接的时候就自动跳转到了不带www的地址了。</p>
+<p>这几行代码很简单，要是想把地址都统一成带www的形式也很简单，套着格式改一下就行。</p>
+
+            </div>
+            <div class="tag">
+                
+                <a href="/tags/seo/">seo</a>
+                
+            </div>
+        </article>
+        <div class="page">
+            
+            <a href="/2011-08-18/" title="Typecho永久链接的设置">上一篇</a>
+            
+            
+        </div>
+
+        <footer>
+            <p>© 2023 小徐de私地 Powered by Hexo .</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>
